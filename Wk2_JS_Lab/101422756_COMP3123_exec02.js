@@ -1,56 +1,7 @@
-// 101422756
-// Cheuk Man Sit
-
-// COMP3123 Full Stack Development
-// Lab 2
-
-// !Note: assessments will cover git repo initialization commands
-
-var add = (a, b) => { return a + b; }
-var sub = (a, b) => { return a - b; }
-
-var makeFunctionCall = function(a, b, add, sub){
-    if(a > b)
-        return add(a, b);
-    else 
-        return sub(a, b)
-}
-
-console.log(makeFunctionCall(5, 1, add, sub));
-
-// == PROMISE == 
-// promise is an object
-// promise takes two parameters: on resolve, on reject
-// parameters can be values, objects (and by extension functions)
-
-// note: the parameter names(resolve and reject here) does NOT matter 
-var p1 = new Promise((success, failure) =>{
-    var successObj = {message: 'success', statusCode: 200};
-    var failureObj = {message: 'failure', statusCode: 100};
-    if (number > 10)
-        resolve(successObj); // resolve() only takes 1 parameter ONLY
-    else 
-        reject(failureObj); // same, reject() only takes 1 parameter ONLY
-    // !! use JSON / OBJECTS to pass multiple values back !!
-})
-
-// .then(success block callback, failure block callback)
-p1.then((result) => {
-    console.log("Success: " + result.message);
-}, (error_msg) => {
-    console.log("Failure: " + error_msg.message);
-}).catch((error) => {
-    console.log(error);
-}).finally(() => {
-    console.log('Finally block');
-})
-
-var api = fetch('https://jsonplaceholder.typicode.com/todos/1')
-    .then(response => response.json())
-    .then(json => console.log(json));
-
-
 // Exercise 1
+console.log("Exercise 1")
+
+// ES6 function declaration
 const greet = (nameArray) => {
     let greetText = 'Hello ';
     for (let x of nameArray)
@@ -60,10 +11,71 @@ const greet = (nameArray) => {
 greet(['Lydia', 'Gordon', 'Waidwen']);
 
 // Exercise 2
+// Capitalize first letter of given word
+console.log("Exercise 2")
 var capitalize = (word) => {
     const [firstLetter, ...rest] = word;
-    console.log(firstLetter.toUpperCase() + rest.join('')); 
+    return firstLetter.toUpperCase() + rest.join(''); 
 }
 
-capitalize('foo');
-capitalize('fEeD');
+console.log(capitalize('foo'));
+console.log(capitalize('fEeD'));
+
+// Exercise 3
+// Exercise 2 but for arrays
+console.log("Exercise 3")
+
+const colours = ['red', 'green', 'blue'];
+const capitalizeFirstLetterForArray = (arr) => arr.map((word) => capitalize(word));
+console.log(capitalizeFirstLetterForArray(colours));
+
+// Exercise 4
+// function that filters out array values < 20
+console.log("Exercise 4")
+
+const filterLessThan20 = (arr) => arr.filter(x => x < 20);
+resultQ4 = filterLessThan20([1, 60, 34, 30, 20, 5]);
+console.log(resultQ4);
+
+// Exercise 5
+// array.prototype.reduce() calculate sum and product of all numbers in array
+console.log("Exercise 5");
+
+var arrQ5 = [1, 2, 3, 4];
+const calcSum = (arr) => arr.reduce((acc, curr) => acc + curr);
+const calcProduct = (arr) => arr.reduce((acc, curr) => acc * curr);
+
+console.log(calcSum(arrQ5));
+console.log(calcProduct(arrQ5));
+
+// Exercise 6
+// ES6 syntax for class constructors and methods
+console.log("Exercise 6");
+
+class Car {
+    constructor(model, year){
+        this.model = model;
+        this.year = year;
+    }
+
+    details(){
+        return `Model: ${this.model}\nYear: ${this.year}`;
+    }
+}
+
+class Sedan extends Car {
+    constructor(model, year, balance){
+        super(model, year);
+        this.balance = balance;
+    }
+
+    info(){
+        return super.details() + `\nBalance: ${this.balance}`;
+    }
+}
+
+const car1 = new Car('Pontiac Firebird', 1976);
+console.log(car1.details())
+
+const car2 = new Sedan('Corolla Cross', 2024, 30000);
+console.log(car2.info())
