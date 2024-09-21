@@ -1,0 +1,17 @@
+{
+  "name": "wk3_js_lab",
+  "version": "1.0.0",
+  "description": "Example NodeJS application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodeJS",
+    "JS",
+    "server",
+    "week3"
+  ],
+  "author": "Cedric Sit",
+  "license": "ISC"
+}
